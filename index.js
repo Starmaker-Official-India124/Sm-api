@@ -23,30 +23,32 @@ app.get('/api/lookup', async (req, res) => {
     const user = data.user;
     const family = data.family || {};
 
-    // Sirf important details nikaal rahe hain
     const result = {
       sid: user.sid || sid,
       name: user.name || user.stage_name || null,
+      stage_name: user.stage_name || null,
       user_level: user.user_level || null,
-      
-      // VIP Details
+      profile_image: user.profile_image || null,
+      created_on: user.created_on || null,
+      gender: user.gender || null,
+      hometown: user.hometown || null,
+
+      // ========== VIP ==========
       is_vip: user.is_vip || false,
       vip_level: user.vip_level || null,
       vip_name_color: user.vip_name_color || null,
       vip_level_anim_icon: user.vip_level_anim_icon || null,
 
-      // Asset / Wealth
-      asset_range: user.asset_range || null,
+      // ========== VIP WEALTH / ASSET ==========
+      asset_range: user.asset_range || null,          // Yeh VIP Wealth hai
 
-      // Noble Details
+      // ========== NOBLE ==========
       is_noble: user.is_noble || false,
       noble_name: user.noble_name || null,
       noble_icon: user.noble_icon || null,
       noble_end_date: user.noble_end_date || null,
 
-      // Extra useful
-      profile_image: user.profile_image || null,
-      created_on: user.created_on || null,
+      // Family
       family_name: family.name || null,
       family_id: family.id || null
     };
